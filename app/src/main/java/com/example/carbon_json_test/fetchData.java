@@ -26,10 +26,8 @@ public class fetchData extends AsyncTask <Void, Void, Void> {
     String data = "";
     String dataParsed = "";
     String singleParsed ="";
-    boolean test1 = false;
+    int erenew = 0;
 
-
-    private int renew = 0;
     @Override
     protected Void doInBackground(Void... voids) {
 
@@ -62,14 +60,9 @@ public class fetchData extends AsyncTask <Void, Void, Void> {
                                 "renew: " + JO.get("renew")+ "\n";
 
                 dataParsed = dataParsed + singleParsed + "\n";
+                erenew = renew;
 
-              /*  if (renew > 2000) {       //Trying to manipulate data on background thread, need to figure out how to manipulate this on main
-                 test1 = true;
-                } else {
-                    test1 = false;
-                }*/
-                //   MainActivity.eData.setText("It is a good time");
-               // MainActivity.eData.setText("It is not a good time");
+
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -86,7 +79,7 @@ public class fetchData extends AsyncTask <Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        if (this.renew >= 2000){
+        if (erenew >= 2000){
             MainActivity.eData.setText("It is a good time");
         }else {
             MainActivity.eData.setText("It is not a good time");
