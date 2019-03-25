@@ -1,5 +1,6 @@
 package com.example.carbon_json_test;
 
+import android.graphics.Color;
 import android.os.AsyncTask;
 
 import org.json.JSONArray;
@@ -53,11 +54,11 @@ public class fetchData extends AsyncTask <Void, Void, Void> {
 
                 singleParsed =  "fuelmixID: " + JO.get("fuelmixID") + "\n" +
                                 "fuelmixDateTime: " + JO.get("fuelmixDateTime") + "\n" +
-                                "coal: " + JO.get("coal") + "\n" +
-                                "gas: " + JO.get("gas") + "\n" +
-                                "netImport: " + JO.get("netImport") + "\n" +
-                                "otherFossil: " + JO.get("otherFossil") + "\n" +
-                                "renew: " + JO.get("renew")+ "\n";
+                                "coal: " + JO.get("coal")+"MW" + "\n" +
+                                "gas: " + JO.get("gas")+"MW" + "\n" +
+                                "netImport: " + JO.get("netImport")+"MW" + "\n" +
+                                "otherFossil: " + JO.get("otherFossil")+"MW" + "\n" +
+                                "renew: " + JO.get("renew")+"MW"+ "\n";
 
                 dataParsed = dataParsed + singleParsed + "\n";
                 erenew = renew;
@@ -80,9 +81,12 @@ public class fetchData extends AsyncTask <Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
         if (erenew >= 2000){
-            MainActivity.eData.setText("It is a good time");
+            MainActivity.eData.setTextColor(Color.GREEN);
+            MainActivity.eData.setText("It is a good time to use appliances");
+
         }else {
-            MainActivity.eData.setText("It is not a good time");
+            MainActivity.eData.setTextColor(Color.RED);
+            MainActivity.eData.setText("It is not a good time to use appliances");
         }
         MainActivity.data.setText(this.dataParsed);
     }

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -23,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         click = (Button) findViewById(R.id.button);
         data = (TextView) findViewById(R.id.fetchedData);
         eData = (TextView) findViewById(R.id.environResult);
-
         click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,5 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 process.execute();
             }
         });
+
+
     }
 }
