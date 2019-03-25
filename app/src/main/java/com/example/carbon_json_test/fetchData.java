@@ -26,6 +26,8 @@ public class fetchData extends AsyncTask <Void, Void, Void> {
     String data = "";
     String dataParsed = "";
     String singleParsed ="";
+    boolean test1 = false;
+
 
     private int renew = 0;
     @Override
@@ -61,12 +63,13 @@ public class fetchData extends AsyncTask <Void, Void, Void> {
 
                 dataParsed = dataParsed + singleParsed + "\n";
 
-               /* if (renew > 2000) {       //Trying to manipulate data on background thread, need to figure out how to manipulate this on main
-                    MainActivity.eData.setText("It is a good time");
+              /*  if (renew > 2000) {       //Trying to manipulate data on background thread, need to figure out how to manipulate this on main
+                 test1 = true;
                 } else {
-                    MainActivity.eData.setText("It is not a good time");
+                    test1 = false;
                 }*/
-
+                //   MainActivity.eData.setText("It is a good time");
+               // MainActivity.eData.setText("It is not a good time");
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -83,7 +86,11 @@ public class fetchData extends AsyncTask <Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-
+        if (this.renew >= 2000){
+            MainActivity.eData.setText("It is a good time");
+        }else {
+            MainActivity.eData.setText("It is not a good time");
+        }
         MainActivity.data.setText(this.dataParsed);
     }
 }
