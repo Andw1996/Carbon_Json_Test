@@ -45,7 +45,7 @@ public class fetchData extends AsyncTask <Void, Void, Void> {
             }
 
             JSONArray JA = new JSONArray(data);
-            for(int i = 0; i < 1; i++){
+            for(final int[] i = {0}; i[0] < 1; i[0]++){
                 JSONObject JO = (JSONObject) JA.get(JA.length()-1); // The length -1 fetches the latest array object
 
                 int renew = JO.getInt("renew"); //makes string value integer
@@ -61,14 +61,13 @@ public class fetchData extends AsyncTask <Void, Void, Void> {
 
                 dataParsed = dataParsed + singleParsed + "\n";
 
-
-
-                if (renew > 2000){
+               /* if (renew > 2000) {       //Trying to manipulate data on background thread, need to figure out how to manipulate this on main
                     MainActivity.eData.setText("It is a good time");
-                } else {MainActivity.eData.setText("It is not a good time");}
+                } else {
+                    MainActivity.eData.setText("It is not a good time");
+                }*/
 
             }
-
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -78,6 +77,8 @@ public class fetchData extends AsyncTask <Void, Void, Void> {
         }
         return null;
     }
+
+
 
     @Override
     protected void onPostExecute(Void aVoid) {
