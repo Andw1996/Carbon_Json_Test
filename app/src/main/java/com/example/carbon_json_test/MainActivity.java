@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Button click;
     public static TextView data;
     public static TextView eData;
+    public static TextView total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         click = (Button) findViewById(R.id.button);
         data = (TextView) findViewById(R.id.fetchedData);
         eData = (TextView) findViewById(R.id.environResult);
+        total = (TextView) findViewById(R.id.total);
+
+        total.setText("test");
         click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -25,11 +25,22 @@
         android:textSize="24sp"
         android:hint="Check if renewable production is high"
         android:layout_below="@id/button"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textColor="#FFFFFF"
+        android:id="@+id/total"
+
+        android:textSize="24sp"
+        android:hint="total mw made"
+        android:layout_below="@id/environResult"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:textColor="#FFFFFF"
         android:layout_height="match_parent"
-        android:layout_below="@id/environResult">
+        android:layout_below="@id/total">
 
     <TextView
         android:layout_width="match_parent"
@@ -40,6 +51,10 @@
         android:textSize="24sp"
         android:hint="Fetched text here"
         android:layout_below="@id/environResult"/>
+
+
     </ScrollView>
+
+
 
 </RelativeLayout>
