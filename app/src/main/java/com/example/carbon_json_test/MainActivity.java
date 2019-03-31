@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button click;
+   // Button click;
     public static TextView data;
     public static TextView eData;
     public static TextView total;
@@ -22,19 +22,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        click = (Button) findViewById(R.id.button);
+       // click = (Button) findViewById(R.id.button);
         data = (TextView) findViewById(R.id.fetchedData);
         eData = (TextView) findViewById(R.id.environResult);
         total = (TextView) findViewById(R.id.total);
 
-        total.setText("test");
-        click.setOnClickListener(new View.OnClickListener() {
+        fetchData process = new fetchData();
+        process.execute();
+
+       /* click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fetchData process = new fetchData();
-                process.execute();
+
             }
-        });
+        });*/
 
 
     }
